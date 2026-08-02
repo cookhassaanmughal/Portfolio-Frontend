@@ -38,6 +38,7 @@ body {
   color: var(--canvas-white);
   overflow-x: hidden;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .app-container {
@@ -304,6 +305,12 @@ body {
     transform: translateZ(0);
     will-change: transform, opacity;
     backface-visibility: hidden;
+    contain: layout style paint;
+  }
+
+  /* Disable heavy background blur and glow animations on mobile for zero scroll stutter */
+  .hero-glow {
+    filter: blur(40px);
   }
 
   /* Disable the animated grid overlay on mobile (saves paint budget) */
@@ -312,11 +319,10 @@ body {
     opacity: 0;
   }
 
-  /* Tone down blob drift animations: shorter duration + remove alternate */
+  /* Tone down blob drift animations on mobile */
   .blob.b1,
   .blob.b2,
   .blob.b3 {
-    animation-duration: 10s;
-    animation-timing-function: linear;
+    animation: none !important;
   }
 }

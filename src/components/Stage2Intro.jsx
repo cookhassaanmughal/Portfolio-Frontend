@@ -74,22 +74,20 @@ const Stage2Intro = () => {
           <StructuralNode size={14} color="#000000" className="intro-node" />
           <motion.h2
             className="intro-headline title-text"
-            initial={{ opacity: 0, y: isMobile ? 10 : 40 }}
+            initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            // Lower threshold on mobile: trigger as soon as 5% of element is visible
-            viewport={{ once: true, amount: isMobile ? 0.05 : 0.3 }}
-            transition={{ duration: isMobile ? 0.3 : 0.7, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: isMobile ? 0.25 : 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
             Experienced software engineer and MERN stack enthusiast, adept at crafting efficient, user-friendly web applications. Eager to learn and stay updated with the latest industry trends. Skilled in full-stack development, collaborating with cross-functional teams to deliver high-quality products. Seeking new opportunities for professional growth and contribution to company success.
           </motion.h2>
           <div className="intro-divider" />
           <motion.div
             className="intro-stats"
-            initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
+            initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            // Lower threshold on mobile
-            viewport={{ once: true, amount: isMobile ? 0.05 : 0.3 }}
-            transition={{ duration: isMobile ? 0.25 : 0.6, delay: isMobile ? 0 : 0.2, ease: 'easeOut' }}
+            viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+            transition={{ duration: isMobile ? 0.25 : 0.5, ease: [0.25, 0.1, 0.25, 1.0] }}
           >
             <div className="stat-item">
               <span className="stat-value">2+</span>

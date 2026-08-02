@@ -26,7 +26,13 @@ const Stage3Bio = () => {
 
   return (
     <section className="stage-3-bio section-transition-contrast">
-      <div className="bio-row bio-row--white">
+      <motion.div
+        className="bio-row bio-row--white"
+        initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+        transition={{ duration: isMobile ? 0.25 : 0.4 }}
+      >
         <div className="bio-grid">
           <SectionLabel>INTRODUCTION</SectionLabel>
           <p className="bio-intro-text body-text">
@@ -37,11 +43,17 @@ const Stage3Bio = () => {
             {afterQuote}
           </p>
         </div>
-      </div>
+      </motion.div>
 
       <div className="bio-divider" />
 
-      <div className="bio-row bio-row--gray">
+      <motion.div
+        className="bio-row bio-row--gray"
+        initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+        transition={{ duration: isMobile ? 0.25 : 0.4 }}
+      >
         <div className="bio-grid">
           <SectionLabel>EDUCATION</SectionLabel>
           <div className="education-row">
@@ -49,10 +61,10 @@ const Stage3Bio = () => {
               <motion.div
                 key={item.id}
                 className="education-card"
-                initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
+                initial={{ opacity: 0, y: isMobile ? 8 : 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
-                transition={{ duration: isMobile ? 0.25 : 0.5 }}
+                viewport={{ once: true, amount: 0.01 }}
+                transition={{ duration: isMobile ? 0.2 : 0.4 }}
               >
                 <div
                   className={`education-logo ${item.logo ? 'education-logo--image' : ''}`}
@@ -70,11 +82,17 @@ const Stage3Bio = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="bio-divider" />
 
-      <div className="bio-row bio-row--white">
+      <motion.div
+        className="bio-row bio-row--white"
+        initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+        transition={{ duration: isMobile ? 0.25 : 0.4 }}
+      >
         <div className="bio-grid">
           <SectionLabel>BACKSTORY</SectionLabel>
           <div className="registry">
@@ -91,11 +109,17 @@ const Stage3Bio = () => {
           </div>
           <StructuralNode size={10} color="rgba(0,0,0,0.15)" className="bio-anchor-dot" />
         </div>
-      </div>
+      </motion.div>
 
       <div className="bio-divider" />
 
-      <div className="bio-row bio-row--gray">
+      <motion.div
+        className="bio-row bio-row--gray"
+        initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+        transition={{ duration: isMobile ? 0.25 : 0.4 }}
+      >
         <div className="bio-grid">
           <SectionLabel>SKILLS</SectionLabel>
           <div className="skills-block">
@@ -114,7 +138,7 @@ const Stage3Bio = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

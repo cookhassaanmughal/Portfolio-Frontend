@@ -75,7 +75,13 @@ const Stage6Capabilities = () => {
 
       <div className="stage-6-content safe-area">
         <div className="stage-6-grid-lines" aria-hidden="true" />
-        <div className="stage-6-layout">
+        <motion.div
+          className="stage-6-layout"
+          initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+          transition={{ duration: isMobile ? 0.25 : 0.4 }}
+        >
           <SectionLabel className="stage-6-label">WHAT I CAN DO</SectionLabel>
           <div className="stage-6-main">
             <ul className="capabilities-list">
@@ -96,7 +102,7 @@ const Stage6Capabilities = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -72,10 +72,10 @@ const Stage5Projects = () => {
           filtered.map((project, i) => (
             <motion.div
               key={project._id || project.title}
-              initial={{ opacity: 0, y: isMobile ? 10 : 30 }}
+              initial={{ opacity: 0, y: isMobile ? 12 : 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: isMobile ? 0.05 : 0.0 }}
-              transition={{ duration: isMobile ? 0.25 : 0.5, delay: isMobile ? 0 : i * 0.1 }}
+              viewport={{ once: true, amount: 0.01, margin: "0px 0px -50px 0px" }}
+              transition={{ duration: isMobile ? 0.25 : 0.4, delay: isMobile ? 0 : i * 0.08 }}
             >
               <ProjectCard project={project} />
             </motion.div>
