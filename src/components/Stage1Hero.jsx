@@ -8,8 +8,8 @@ const Stage1Hero = ({ heroReveal = 0 }) => {
       <div className="hero-content">
         <h1 className={`hero-name${heroReveal > 0.01 ? ' hero-name--collapsed' : ''}`}>
           <span className="text-line">{applyGlyphInversion('HASSAAN')}</span>
+          <span className="text-line text-line-mobile">{applyGlyphInversion('MUGHAL')}</span>
         </h1>
-        
       </div>
     </section>
   );

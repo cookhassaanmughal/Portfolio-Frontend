@@ -58,8 +58,8 @@
   opacity: 1;
 }
 
-.text-line {
-  display: block;
+.text-line-mobile {
+  display: none;
 }
 
 /* ── Subtitle row ── */
@@ -99,10 +99,12 @@
 
 @media (max-width: 768px) {
   .hero-name {
-    /* Reduce font-size by ~5% from desktop clamp values */
-    font-size: clamp(2.85rem, 13.3vw, 7.6rem);
-    white-space: normal;
-    word-break: break-all;
+    /* Ideal fit font size for mobile screens so each word fits cleanly on a single line */
+    font-size: clamp(2rem, 9.5vw, 3.8rem);
+    line-height: 1.1;
+    white-space: nowrap;
+    text-align: center;
+
     /* Strip ALL entry & scroll animations — strictly static on mobile */
     transition: none !important;
     animation: heroColorShift 4s ease-in-out infinite; /* keep colour only */
@@ -112,10 +114,18 @@
     backface-visibility: hidden;
   }
 
+  .text-line-mobile {
+    display: block;
+  }
+
   /* Collapsed state: no animated transition, snap immediately */
   .hero-name--collapsed {
     transition: none !important;
     transform: translate(0, 0) translateZ(0);
+  }
+
+  .hero-name--collapsed .text-line-mobile {
+    display: none;
   }
 
   .hero-subtitle-row {
