@@ -4,7 +4,7 @@ import Stage2Intro from './Stage2Intro';
 import Stage5Projects from './Stage5Projects';
 import Stage7Contact from './Stage7Contact';
 
-const HomePage = ({ heroRef, stage2Ref, stage6Ref, cloudState, heroReveal }) => {
+const HomePage = ({ heroRef, stage2Ref, stage6Ref, cloudState, heroReveal, onNavigate }) => {
   return (
     <div className="app-container wave-container" data-cloud-state={cloudState}>
       <div className="hero-glow-mask" aria-hidden="true">
@@ -27,7 +27,7 @@ const HomePage = ({ heroRef, stage2Ref, stage6Ref, cloudState, heroReveal }) => 
         <Stage5Projects />
       </div>
 
-      <Stage7Contact />
+      <Stage7Contact onNavigate={onNavigate} />
     </div>
   );
 };

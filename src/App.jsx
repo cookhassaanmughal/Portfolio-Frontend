@@ -51,12 +51,16 @@ function App() {
       navigate(path);
     }
 
-    if (hash) {
-      const target = document.querySelector(hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else if (path) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    }
+    }, 50);
   };
 
   const cloudState = scrollProgress < 0.3 ? 'hero' : scrollProgress < 0.7 ? 'canvas' : 'contact';
@@ -76,12 +80,12 @@ function App() {
         <Route
           path="/"
           element={
-            <HomePage heroRef={heroRef} stage2Ref={stage2Ref} stage6Ref={stage6Ref} cloudState={cloudState} heroReveal={heroReveal} />
+            <HomePage heroRef={heroRef} stage2Ref={stage2Ref} stage6Ref={stage6Ref} cloudState={cloudState} heroReveal={heroReveal} onNavigate={handleNavigation} />
           }
         />
         <Route
           path="/about"
-          element={<AboutPage stage6Ref={stage6Ref} />}
+          element={<AboutPage stage6Ref={stage6Ref} onNavigate={handleNavigation} />}
         />
       </Routes>
     </>

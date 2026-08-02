@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { applySlashRule, applyGlyphInversion } from '../utils/textUtils';
-import { getNavColors } from '../hooks/useNavTheme';
 import './Navigation.css';
 
 const NavLink = ({ href, label, onClick }) => (
@@ -27,16 +26,19 @@ const Navigation = ({ navMode = 'spread', theme = 'dark', route = '/', heroRevea
   const handleNavigate = (path, hash) => () => onNavigate(path, hash);
 
   if (isAbout) {
-    const { bg } = getNavColors(theme);
+    // Always use a dark semi-opaque background on the About page so that the
+    // white nav-link text stays readable over every section (including the
+    // light-background Stage3Bio rows). The scroll-driven `theme` from
+    // useNavTheme is homepage-specific and stays 'dark' (transparent) here.
     return (
-      <nav className="navigation navigation--about navigation--branded" style={{ backgroundColor: bg }}>
+      <nav className="navigation navigation--about navigation--branded" style={{ backgroundColor: 'rgba(0,0,0,0.75)' }}>
         <div className="navigation__inner navigation__inner--branded about-nav-inner">
           <div className="nav-slot nav-slot--start about-nav-group">
             <NavLink href="/" label="HASSAAN" onClick={handleNavigate('/', '#hero')} />
           </div>
           <div className="nav-slot nav-slot--end about-nav-group">
             <NavLink href="/" label="PROJECTS" onClick={handleNavigate('/', '#projects')} />
-            <NavLink href="/" label="CONTACT" onClick={handleNavigate('/', '#contact')} />
+            <NavLink href="/about" label="CONTACT" onClick={handleNavigate('/about', '#about-hero')} />
           </div>
         </div>
       </nav>
@@ -53,7 +55,7 @@ const Navigation = ({ navMode = 'spread', theme = 'dark', route = '/', heroRevea
           <NavLink href="/" label="ALL PROJECTS" onClick={handleNavigate('/', '#projects')} />
         </div>
         <div className="nav-slot nav-slot--end">
-          <NavLink href="/" label="CONTACT" onClick={handleNavigate('/', '#contact')} />
+          <NavLink href="/about" label="CONTACT" onClick={handleNavigate('/about', '#about-hero')} />
         </div>
       </div>
     </nav>
