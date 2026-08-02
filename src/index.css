@@ -282,3 +282,41 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.2em;
 }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MOBILE PERFORMANCE — @media (max-width: 768px)
+   Apply GPU hardware acceleration to section containers to prevent scroll-lag
+   repaints on mobile devices. Also lower safe-padding for tighter viewports.
+───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --safe-padding: 20px;
+  }
+
+  /* GPU-promote every major scrollable stage section */
+  .stage-1-hero,
+  .stage-2-intro,
+  .stage-3-bio,
+  .stage-4-about,
+  .stage-5-projects,
+  .stage-6-capabilities,
+  .stage-7-contact {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Disable the animated grid overlay on mobile (saves paint budget) */
+  .grid-overlay {
+    animation: none;
+    opacity: 0;
+  }
+
+  /* Tone down blob drift animations: shorter duration + remove alternate */
+  .blob.b1,
+  .blob.b2,
+  .blob.b3 {
+    animation-duration: 10s;
+    animation-timing-function: linear;
+  }
+}

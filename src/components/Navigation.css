@@ -130,3 +130,30 @@
     gap: 0.75rem;
   }
 }
+
+/* ── Mobile-only: strip all navbar entry & scroll animations ── */
+@media (max-width: 768px) {
+  /* Disable slot sliding transitions — nav stays static */
+  .navigation--hero-collapsed .nav-slot {
+    transition: none !important;
+  }
+
+  /* Immediately resolve any residual transform offsets */
+  .navigation--hero-collapsed .nav-slot--start,
+  .navigation--hero-collapsed .nav-slot--center,
+  .navigation--hero-collapsed .nav-slot--end {
+    transform: none !important;
+  }
+
+  /* No fade-in delay on nav-links */
+  .nav-link {
+    transition: opacity 0.15s ease !important;
+  }
+
+  /* GPU-accelerate the fixed navbar to avoid compositor lag */
+  .navigation {
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+}

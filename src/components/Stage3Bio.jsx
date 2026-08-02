@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lock } from 'lucide-react';
 import { bioContent } from '../data/bioContent';
@@ -6,8 +6,21 @@ import SectionLabel from './SectionLabel';
 import StructuralNode from './StructuralNode';
 import './Stage3Bio.css';
 
+/** Detect mobile once on mount (≤68 px). */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isMobile;
+}
+
 const Stage3Bio = () => {
   const { introduction, education, backstory, skills } = bioContent;
+  const isMobile = useIsMobile();
   const highlightedQuote = '"You bring the vision. I’ll bring the engine."';
   const [beforeQuote, afterQuote] = introduction.split(highlightedQuote);
 
@@ -36,10 +49,10 @@ const Stage3Bio = () => {
               <motion.div
                 key={item.id}
                 className="education-card"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: isMobile ? 8 : 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                viewport={{ once: true, amount: isMobile ? 0.05 : 0.2 }}
+                transition={{ duration: isMobile ? 0.25 : 0.5 }}
               >
                 <div
                   className={`education-logo ${item.logo ? 'education-logo--image' : ''}`}

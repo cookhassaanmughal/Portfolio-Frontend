@@ -6,10 +6,23 @@ import StructuralNode from './StructuralNode';
 import ProjectCard from './ProjectCard';
 import './Stage5Projects.css';
 
+/** Detect mobile once on mount (≤68px). */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth <= 768);
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 768px)');
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+  return isMobile;
+}
+
 const Stage5Projects = () => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     fetchProjects()
@@ -59,10 +72,10 @@ const Stage5Projects = () => {
           filtered.map((project, i) => (
             <motion.div
               key={project._id || project.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: isMobile ? 10 : 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true, amount: isMobile ? 0.05 : 0.0 }}
+              transition={{ duration: isMobile ? 0.25 : 0.5, delay: isMobile ? 0 : i * 0.1 }}
             >
               <ProjectCard project={project} />
             </motion.div>
