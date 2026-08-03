@@ -22,25 +22,25 @@ const Stage4About = () => {
           </h2>
           <div className="about-social-tier">
             <span className="social-label mono-label">DOWNLOAD RESUME</span>
-            <a href="/Muhammad_Hassaan_Mughal_Resume.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-              <img src="/resume-business-cv-work-job-curriculum-2-svgrepo-com.svg" alt="Resume" className="social-icon" />
+            <a href="/Muhammad_Hassaan_Mughal_Resume.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Download resume">
+              <img src="/resume-business-cv-work-job-curriculum-2-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
             </a>
             <span className="social-label mono-label">CONNECT WITH ME</span>
             <div className="social-row about-social-row">
               <a href={SOCIAL.github} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <img src="/icons/github-logo.svg" alt="GitHub" className="social-icon" />
+                <img src="/icons/github-logo.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
               </a>
               <a href={SOCIAL.linkedin} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <img src="/linkedin-svgrepo-com.svg" alt="LinkedIn" className="social-icon" />
+                <img src="/linkedin-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
               </a>
               <a href="mailto:hassaanm980@gmail.com" className="social-link" aria-label="Email">
-                <img src="/mail-svgrepo-com.svg" alt="Email" className="social-icon" />
+                <img src="/mail-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
               </a>
               <a href={SOCIAL.instagram} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                <img src="/instagram-logo-facebook-2-svgrepo-com.svg" alt="Instagram" className="social-icon" />
+                <img src="/instagram-logo-facebook-2-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
               </a>
               <a href={SOCIAL.twitter} className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                <img src="/twitter-svgrepo-com.svg" alt="Twitter" className="social-icon" />
+                <img src="/twitter-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
               </a>
             </div>
           </div>

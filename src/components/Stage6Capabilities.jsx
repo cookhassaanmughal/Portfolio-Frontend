@@ -24,6 +24,8 @@ const TechLogo = ({ tech }) => (
       src={tech.image}
       alt={tech.name}
       className={`tech-logo-image ${tech.id === 'nodejs' ? 'tech-logo-image--large' : ''}`}
+      loading="lazy"
+      decoding="async"
     />
     <span className="tech-logo mono-label">{tech.name}</span>
   </div>
@@ -56,7 +58,7 @@ const Stage6Capabilities = () => {
   );
 
   return (
-    <section ref={ref} className="stage-6-capabilities section-transition-contrast">
+    <section ref={ref} className="stage-6-capabilities section-transition-contrast" aria-labelledby="capabilities-heading">
       {/* Wave overlay: skip entirely on mobile to remove parallax repaint cost */}
       {!isMobile && (
         <motion.div className="stage-6-wave" style={{ opacity: waveOpacity }}>
@@ -83,6 +85,7 @@ const Stage6Capabilities = () => {
           transition={{ duration: isMobile ? 0.25 : 0.4 }}
         >
           <SectionLabel className="stage-6-label">WHAT I CAN DO</SectionLabel>
+          <h2 id="capabilities-heading" className="capabilities-title title-text">I build with the modern stack that scales.</h2>
           <div className="stage-6-main">
             <ul className="capabilities-list">
               {capabilities.map((cap) => (

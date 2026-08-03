@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
@@ -15,6 +15,18 @@ function App() {
   const [heroReveal, setHeroReveal] = useState(0);
   const { mode, theme } = useNavTheme({ hero: heroRef, stage6: stage6Ref });
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const routeMeta = {
+    '/': {
+      title: 'Hassaan Mughal | AI Engineer & Full-Stack Developer',
+      description: 'Portfolio of Hassaan Mughal, an AI engineer and full-stack developer specializing in optimized MERN backends and high-impact web experiences.',
+    },
+    '/about': {
+      title: 'About Hassaan Mughal | AI Engineer & Full-Stack Developer',
+      description: 'Learn more about Hassaan Mughal, his education, skills, capabilities, and professional background.',
+    },
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +57,84 @@ function App() {
       window.removeEventListener('resize', handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const route = routeMeta[location.pathname] || routeMeta['/'];
+    const canonicalUrl = `${window.location.origin}${location.pathname}${location.hash || ''}`;
+
+    document.title = route.title;
+
+    const descriptionTag = document.querySelector('meta[name="description"]');
+    if (descriptionTag) {
+      descriptionTag.setAttribute('content', route.description);
+    }
+
+    const canonicalTag = document.querySelector('link[rel="canonical"]');
+    if (canonicalTag) {
+      canonicalTag.setAttribute('href', canonicalUrl);
+    }
+
+    const ogTitleTag = document.querySelector('meta[property="og:title"]');
+    if (ogTitleTag) {
+      ogTitleTag.setAttribute('content', route.title);
+    }
+
+    const ogDescriptionTag = document.querySelector('meta[property="og:description"]');
+    if (ogDescriptionTag) {
+      ogDescriptionTag.setAttribute('content', route.description);
+    }
+
+    const ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (ogUrlTag) {
+      ogUrlTag.setAttribute('content', canonicalUrl);
+    }
+
+    const twitterTitleTag = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitleTag) {
+      twitterTitleTag.setAttribute('content', route.title);
+    }
+
+    const twitterDescriptionTag = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescriptionTag) {
+      twitterDescriptionTag.setAttribute('content', route.description);
+    }
+
+    const structuredDataTag = document.getElementById('structured-data');
+    if (structuredDataTag) {
+      structuredDataTag.textContent = JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          {
+            '@type': 'Person',
+            name: 'Hassaan Mughal',
+            jobTitle: 'AI Engineer & Full-Stack Developer',
+            url: canonicalUrl,
+            sameAs: [
+              'https://github.com/cookhassaanmughal',
+              'https://www.linkedin.com/in/hassaan-mughal-605603249/',
+              'https://www.instagram.com/hasaannmughal/',
+              'https://x.com/hassaanmughal_',
+            ],
+            description: route.description,
+          },
+          {
+            '@type': 'WebSite',
+            name: 'Hassaan Mughal Portfolio',
+            url: canonicalUrl,
+            about: {
+              '@type': 'Person',
+              name: 'Hassaan Mughal',
+            },
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${window.location.origin}/?q={search_term_string}`,
+              'query-input': 'required name=search_term_string',
+            },
+          },
+        ],
+      });
+    }
+  }, [location.pathname, location.hash, routeMeta]);
 
   const handleNavigation = (path, hash) => {
     if (path) {

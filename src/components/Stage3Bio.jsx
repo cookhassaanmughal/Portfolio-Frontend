@@ -71,7 +71,7 @@ const Stage3Bio = () => {
                   style={!item.logo ? { backgroundColor: item.color } : undefined}
                 >
                   {item.logo ? (
-                    <img src={item.logo} alt={item.institution} className="education-logo-image" />
+                    <img src={item.logo} alt={`${item.institution} logo`} className="education-logo-image" loading="lazy" decoding="async" />
                   ) : (
                     item.initials
                   )}

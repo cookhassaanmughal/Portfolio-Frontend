@@ -26,19 +26,19 @@ const Stage7Contact = ({ onNavigate }) => {
 
       <div className="social-tier">
         <span className="social-label mono-label">DOWNLOAD RESUME</span>
-        <a href="/Muhammad_Hassaan_Mughal_Resume.pdf" className="social-link mono-label" target="_blank" rel="noopener noreferrer" aria-label="Resume">
-          <img src="/resume-business-cv-work-job-curriculum-2-svgrepo-com.svg" alt="Resume" className="social-icon" />
+        <a href="/Muhammad_Hassaan_Mughal_Resume.pdf" className="social-link mono-label" target="_blank" rel="noopener noreferrer" aria-label="Download resume">
+          <img src="/resume-business-cv-work-job-curriculum-2-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
         </a>
         <span className="social-label mono-label">MORE ABOUT ME?</span>
         <div className="social-row">
           <a href={SOCIAL.github} className="social-link mono-label" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-            <img src="/icons/github-logo.svg" alt="GitHub" className="social-icon" />
+            <img src="/icons/github-logo.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
           </a>
           <a href={SOCIAL.linkedin} className="social-link mono-label" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-            <img src="/linkedin-svgrepo-com.svg" alt="LinkedIn" className="social-icon" />
+            <img src="/linkedin-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
           </a>
           <a href="mailto:hassaanm980@gmail.com" className="social-link mono-label" aria-label="Email">
-            <img src="/mail-svgrepo-com.svg" alt="Email" className="social-icon" />
+            <img src="/mail-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
           </a>
         </div>
       </div>

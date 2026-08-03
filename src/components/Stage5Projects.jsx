@@ -46,9 +46,9 @@ const Stage5Projects = () => {
     : normalizedProjects;
 
   return (
-    <section className="stage-5-projects section-transition-contrast" id="projects">
+    <section className="stage-5-projects section-transition-contrast" id="projects" aria-labelledby="projects-heading">
       <div className="projects-header safe-area">
-        <h2 className="projects-mega-title display-text">SELECTED WORKS</h2>
+        <h2 id="projects-heading" className="projects-mega-title display-text">SELECTED WORKS</h2>
         <div className="projects-categories">
           {categories.map((cat, i) => (
             <React.Fragment key={cat}>

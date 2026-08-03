@@ -9,9 +9,10 @@ const ProjectCard = ({ project }) => {
       <div className="project-card">
         <img
           src={project.imageUrl}
-          alt={project.title}
+          alt={`${project.title} project preview`}
           className="project-card__image"
           loading="lazy"
+          decoding="async"
         />
         <div className="project-card__vignette" />
         <div className="project-card__tags">

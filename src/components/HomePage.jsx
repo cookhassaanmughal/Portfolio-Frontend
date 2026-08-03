@@ -6,7 +6,7 @@ import Stage7Contact from './Stage7Contact';
 
 const HomePage = ({ heroRef, stage2Ref, stage6Ref, cloudState, heroReveal, onNavigate }) => {
   return (
-    <div className="app-container wave-container" data-cloud-state={cloudState}>
+    <main className="app-container wave-container" data-cloud-state={cloudState}>
       <div className="hero-glow-mask" aria-hidden="true">
         <div className="hero-glow">
           <div className="blob b1" />
@@ -28,7 +28,7 @@ const HomePage = ({ heroRef, stage2Ref, stage6Ref, cloudState, heroReveal, onNav
       </div>
 
       <Stage7Contact onNavigate={onNavigate} />
-    </div>
+    </main>
   );
 };
 
