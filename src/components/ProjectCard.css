@@ -46,7 +46,7 @@
 
 .project-card__title {
   font-size: clamp(1.25rem, 2vw, 1.75rem);
-  color: #000;
+  color: var(--page-text);
   padding-left: 0;
   display: inline-flex;
   align-items: center;

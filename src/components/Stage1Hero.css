@@ -37,8 +37,8 @@
   padding: 0;
   transition: top 0.8s cubic-bezier(0.22, 1, 0.36, 1), left 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), font-size 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 
-  /* Dynamic cyan-to-white text color animation */
-  background: linear-gradient(90deg, #52CAFA 0%, #ffffff 50%, #52CAFA 100%);
+  /* Dynamic cyan-to-text color animation */
+  background: linear-gradient(90deg, #52CAFA 0%, var(--page-text) 50%, #52CAFA 100%);
   background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -74,7 +74,7 @@
 .hero-subtitle {
   font-size: clamp(0.9rem, 1.4vw, 1.2rem);
   font-weight: 450;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--page-muted);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: 0;
@@ -82,7 +82,7 @@
 }
 
 .subtitle-sep {
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--page-muted);
   font-weight: 300;
   font-size: clamp(0.9rem, 1.4vw, 1.2rem);
 }

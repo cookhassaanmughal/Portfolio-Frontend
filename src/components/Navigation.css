@@ -34,6 +34,33 @@
   pointer-events: auto;
 }
 
+.nav-slot--end {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--page-text);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  transition: transform 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+  opacity: 0.85;
+}
+
+.theme-toggle-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+  background-color: var(--page-surface);
+}
+
 .about-nav-group {
   display: flex;
   align-items: center;
@@ -65,7 +92,7 @@
 }
 
 .navigation--about .nav-link {
-  color: #ffffff;
+  color: var(--page-text);
 }
 
 .nav-link:hover {

@@ -61,13 +61,13 @@
 .stage-3-bio .title-text,
 .stage-3-bio .mono-label,
 .stage-3-bio .section-label {
-  color: #fff;
+  color: var(--page-text);
 }
 
 .bio-intro-text {
   font-size: clamp(1.32rem, 2.16vw, 1.62rem);
   font-weight: 600;
-  color: #fff;
+  color: var(--page-text);
   line-height: 1.65;
   max-width: 720px;
 }
@@ -76,7 +76,7 @@
   display: inline-block;
   font-weight: 900;
   letter-spacing: 0.02em;
-  color: #fff;
+  color: var(--page-text);
 }
 
 .education-row {
@@ -104,9 +104,9 @@
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.63rem;
-  color: #fff;
+  color: var(--page-bg);
   overflow: hidden;
-  background: #111;
+  background: var(--page-text);
 }
 
 .education-logo--image {
@@ -124,11 +124,11 @@
 
 .education-degree {
   font-size: 1.43rem;
-  color: #fff;
+  color: var(--page-text);
 }
 
 .education-meta {
-  color: rgba(255, 255, 255, 0.75);
+  color: var(--page-muted);
   font-size: 0.85rem;
 }
 
@@ -147,14 +147,14 @@
 }
 
 .registry-key {
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--page-muted);
   font-size: 0.94rem;
   letter-spacing: 0.2em;
 }
 
 .registry-value {
   font-size: 1.3rem;
-  color: #fff;
+  color: var(--page-text);
 }
 
 .bio-anchor-dot {
@@ -176,26 +176,27 @@
 }
 
 .skill-name {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--page-muted);
   font-size: 0.94rem;
 }
 
 .skill-bar-track {
   position: relative;
   height: 18px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--page-surface);
+  border: 1px solid var(--page-muted);
   display: flex;
 }
 
 .skill-bar-fill {
   height: 100%;
-  background: #ffffff;
+  background: var(--page-text);
 }
 
 .skill-bar-tip {
   flex: 1;
   height: 100%;
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--page-surface);
 }
 
 .skill-locked {

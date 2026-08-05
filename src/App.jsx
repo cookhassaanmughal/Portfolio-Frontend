@@ -13,7 +13,7 @@ function App() {
   const stage6Ref = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [heroReveal, setHeroReveal] = useState(0);
-  const { mode, theme } = useNavTheme({ hero: heroRef, stage6: stage6Ref });
+  const { mode } = useNavTheme({ hero: heroRef, stage6: stage6Ref });
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -160,7 +160,6 @@ function App() {
       <IntroOverlay />
       <Navigation
         navMode={mode}
-        theme={theme}
         route="/"
         heroReveal={heroReveal}
         onNavigate={handleNavigation}

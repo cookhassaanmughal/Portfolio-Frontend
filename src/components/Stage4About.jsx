@@ -22,7 +22,7 @@ const Stage4About = () => {
           </h2>
           <div className="about-social-tier">
             <span className="social-label mono-label">DOWNLOAD RESUME</span>
-            <a href="/Muhammad_Hassaan_Mughal_Resume.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Download resume">
+            <a href="/hassaanmughal-resume.pdf" className="social-link" target="_blank" rel="noopener noreferrer" aria-label="Download resume">
               <img src="/resume-business-cv-work-job-curriculum-2-svgrepo-com.svg" alt="" className="social-icon" loading="lazy" decoding="async" aria-hidden="true" />
             </a>
             <span className="social-label mono-label">CONNECT WITH ME</span>

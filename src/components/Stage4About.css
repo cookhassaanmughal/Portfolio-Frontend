@@ -62,11 +62,11 @@
 }
 
 .about-social-row .social-link {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--page-muted);
 }
 
 .about-social-row .social-link:hover {
-  color: #fff;
+  color: var(--page-text);
 }
 
 .about-social-row .social-icon {
@@ -77,13 +77,21 @@
   transition: filter 0.2s, transform 0.2s;
 }
 
+[data-theme="light"] .about-social-row .social-icon {
+  filter: grayscale(1) invert(1) brightness(0.3);
+}
+
 .about-social-row .social-link:hover .social-icon {
   filter: grayscale(0) brightness(1);
   transform: scale(1.05);
 }
 
+[data-theme="light"] .about-social-row .social-link:hover .social-icon {
+  filter: grayscale(0) invert(0) brightness(1);
+}
+
 .about-social-tier .social-label {
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--page-muted);
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
