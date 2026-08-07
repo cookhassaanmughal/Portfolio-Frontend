@@ -1,11 +1,22 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import React, { useRef, useState, useEffect, useMemo } from 'react';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import IntroOverlay from './components/IntroOverlay';
 import { useNavTheme } from './hooks/useNavTheme';
 import './index.css';
+
+const routeMeta = {
+  '/': {
+    title: 'Hassaan Mughal | AI Engineer & Full-Stack Developer',
+    description: 'Portfolio of Hassaan Mughal, an AI engineer and full-stack developer specializing in optimized MERN backends and high-impact web experiences.',
+  },
+  '/about': {
+    title: 'About Hassaan Mughal | AI Engineer & Full-Stack Developer',
+    description: 'Learn more about Hassaan Mughal, his education, skills, capabilities, and professional background.',
+  },
+};
 
 function App() {
   const heroRef = useRef(null);
@@ -16,17 +27,10 @@ function App() {
   const { mode } = useNavTheme({ hero: heroRef, stage6: stage6Ref });
   const navigate = useNavigate();
   const location = useLocation();
-
-  const routeMeta = {
-    '/': {
-      title: 'Hassaan Mughal | AI Engineer & Full-Stack Developer',
-      description: 'Portfolio of Hassaan Mughal, an AI engineer and full-stack developer specializing in optimized MERN backends and high-impact web experiences.',
-    },
-    '/about': {
-      title: 'About Hassaan Mughal | AI Engineer & Full-Stack Developer',
-      description: 'Learn more about Hassaan Mughal, his education, skills, capabilities, and professional background.',
-    },
-  };
+  const normalizedPath = useMemo(
+    () => location.pathname.replace(/\/+$|^$/, '/') || '/',
+    [location.pathname],
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,8 +63,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const route = routeMeta[location.pathname] || routeMeta['/'];
-    const canonicalUrl = `${window.location.origin}${location.pathname}${location.hash || ''}`;
+    const route = routeMeta[normalizedPath] || routeMeta['/'];
+    const canonicalUrl = `${window.location.origin}${normalizedPath}${location.hash || ''}`;
 
     document.title = route.title;
 
@@ -173,9 +177,10 @@ function App() {
           }
         />
         <Route
-          path="/about"
+          path="/about/*"
           element={<AboutPage stage6Ref={stage6Ref} onNavigate={handleNavigation} />}
         />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>
   );
